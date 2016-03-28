@@ -1,5 +1,6 @@
 class PrintersController < ApplicationController
   before_action :set_printer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /printers
   # GET /printers.json
