@@ -14,8 +14,8 @@ module Yelp
     def execute
       search
       navigate_results
-      #return back only unique phone numbers
-      @phone_numbers.uniq
+      #return back only unique phone numbers, and no blanks
+      @phone_numbers.uniq.reject(&:empty?)
     end
 
     private
