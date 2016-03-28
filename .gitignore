@@ -18,3 +18,4 @@
 
 #Ignore postgreSQL database.
 /config/database.yml
+
