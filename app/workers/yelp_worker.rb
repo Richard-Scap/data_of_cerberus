@@ -2,8 +2,8 @@ class YelpWorker
 	include Sidekiq::Worker
 
 	def perform(city_id)
-		logger.info "Starting YelpWorker for #{@city.name}!"
     @city = City.find(city_id)
+		logger.info "Starting YelpWorker for #{@city.name}!"
 		phone_numbers = Yelp::YelpScrape.new(term: "screen-printing", city: @city.name).execute
     @client = Yelp::YelpConnect.get_client
 
