@@ -18,6 +18,8 @@ gem 'sidekiq'
 gem 'redis'
 #webserver look at Procfile
 gem 'puma'
+gem 'chamber'
+gem 'sinatra', :require => nil
 
 group :development, :test do
 
