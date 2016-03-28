@@ -24,6 +24,6 @@ class YelpWorker
 				logger.info "ERROR: #{exception}"
 			end
     end
-		logger.info "Yelp Scrape Completed for #{@city.name!}"
+		logger.info "Yelp Scrape Completed for #{@city.name}!"
 	end
 end
