@@ -1,5 +1,6 @@
 class YelpWorker
 	include Sidekiq::Worker
+	sidekiq_options :retry => 1
 
 	def perform(city_id)
     @city = City.find(city_id)
