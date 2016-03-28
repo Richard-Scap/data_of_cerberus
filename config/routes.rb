@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :cities do
     resources :printers
   end 
-
+ 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   
 
 
