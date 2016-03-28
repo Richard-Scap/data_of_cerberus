@@ -1,0 +1,44 @@
+
+<p id="notice"><%= notice %></p>
+<h1>Listing Printers</h1>
+<h4> <%= link_to 'Cities index', cities_path %> </h4>
+<div class= "container">
+
+  <table class= "table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>City ID</th>
+        <th>Company</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @printers.each do |printer| %>
+        <tr>
+
+          <td><%= link_to 'Show', city_printer_path(:city_id, :id) %></td>
+
+          <td><%= link_to 'Edit', edit_city_printer_path(printer, :id) %></td>
+
+          <td><%= link_to 'Destroy', city_printers_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%=printer.city_id%></td>
+          <td><%=printer.company%></td>
+          <td><%=printer.number%></td>
+          <td><%=printer.address%></td>
+          <td><%=printer.rating%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<br>
+
+<%#= link_to 'New Printer', new_printer_path %>
