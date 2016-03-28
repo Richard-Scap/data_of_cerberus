@@ -16,6 +16,8 @@ gem 'yelp'
 gem 'selenium-webdriver'
 gem 'sidekiq'
 gem 'redis'
+#webserver look at Procfile
+gem 'puma'
 
 group :development, :test do
 
@@ -29,4 +31,3 @@ group :development do
 
   gem 'spring'
 end
-
