@@ -1,33 +1,19 @@
-
-
 default: &default
   adapter: postgresql
-  pool: 5
+  encoding: unicode
+  user: colton
+  password: cookie12
+  pool: 25
   timeout: 5000
 
 development:
-  adapter: postgresql
-  encoding: utf8
-  database: scap
-  pool: 5
-  username: 
-  password:
+  <<: *default
+  database: cer_dev
 
-test: &TEST
-  adapter: postgresql
-  encoding: utf8
-  database: project_test
-  pool: 5
-  username: 
-  password:
+test:
+  <<: *default
+  database: cer_test
 
 production:
-  adapter: postgresql
-  encoding: utf8
-  database: project_production
-  pool: 5
-  username: 
-  password:
-
-cucumber:
-  <<: *TEST
+  <<: *default
+  database: cer_dev

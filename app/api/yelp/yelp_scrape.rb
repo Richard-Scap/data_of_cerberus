@@ -1,11 +1,12 @@
 module Yelp
   class YelpScrape
-    attr_accessor :term, :city, :yelp_client, :driver, :phone_numbers
+    attr_accessor :term, :city, :yelp_client, :wait, :driver, :phone_numbers
 
     def initialize(term:, city:)
       @term = term
       @city = city
       @yelp_client = YelpConnect.get_client
+      @wait = Selenium::WebDriver::Wait.new(:timeout => 10)
       @driver = Selenium::WebDriver.for :phantomjs
       @phone_numbers = []
     end
@@ -13,7 +14,8 @@ module Yelp
     def execute
       search
       navigate_results
-      @phone_numbers
+      #return back only unique phone numbers
+      @phone_numbers.uniq
     end
 
     private
@@ -23,11 +25,11 @@ module Yelp
     end
 
     def next_page
-    	@driver.find_element(:css, ".next")
+      element = wait.until { @driver.find_element(:css, ".next") }
     end
 
     def numbers
-    	@driver.find_elements(:class, "biz-phone")
+      element = wait.until { @driver.find_elements(:class, "biz-phone") }
     end
 
     def search
@@ -45,8 +47,13 @@ module Yelp
 
     def navigate_results
       total_reps.times do
-      	numbers.each{|n| @phone_numbers << n.text.gsub("-", "").gsub(" ", "").gsub("(", "").gsub(")", "")}
-      	next_page.click
+        sleep(5)
+        begin
+        	numbers.each{|n| @phone_numbers << n.text.gsub("-", "").gsub(" ", "").gsub("(", "").gsub(")", "")}
+        	next_page.click
+        rescue => exception
+          puts exception
+        end
       end
     end
   end
