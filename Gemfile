@@ -18,6 +18,7 @@ gem 'sidekiq'
 gem 'redis'
 #webserver look at Procfile
 gem 'puma'
+gem 'chamber'
 
 group :development, :test do
 
