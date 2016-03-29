@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
+<nav class="navbar navbar-default navbar-static-top">
+	<div class= "container">
+	  <div id = "navbar" class= "pull-right">
+	    <%=link_to 'Sign Out', destroy_user_session_path, method: :delete%>
+	  </div>
+	</div>
+</nav>
 <head>
   <title>DataOfCerberus</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :defaults, 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <p class="notice"><%= notice %></p>
