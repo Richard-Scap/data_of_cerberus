@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+	<div class= "container-fluid">
+		<div class="navbar-header">
+			<!--	
+			<a class"navbar-brand" href="#">
+				<%= image_tag "cerberus" %>
+			</a> 
+			-->
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		  </button>
+    	<%= link_to "Cerberus", root_path, class: "navbar-brand" %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+    	<ul class="nav navbar-nav"> 
+    		<li class="dropdown">
+    			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
+    			<ul class="dropdown-menu">
+    				<li>Item 1</li>
+    				<li>Item 2</li>
+    				<li>Item 3</li>
+    			</ul>
+    		</li>
+    	</ul>
+    	<ul class="nav navbar-nav navbar-right">
+		  	<li class="dropdown">
+			  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Session<span class="caret"></span></a>
+			  	<ul class="dropdown-menu">
+				  	<%if user_signed_in? %>
+				    	<li><%=link_to 'Log out', destroy_user_session_path, method: :delete%></li>
+				    <% else %>
+				    	<li><%=link_to 'Sign up', new_user_registration_path%></li>
+				    	<li><%=link_to 'Log in', new_user_session_path, method: :get%></li>
+				    <% end %>
+			    </ul>
+			  </li>
+			</ul>
+    </div>
+
+	  <div class="collapse navbar-collapse">
+	  	
+	  </div>
+
+	</div><!-- container-fluid -->
+</nav>
