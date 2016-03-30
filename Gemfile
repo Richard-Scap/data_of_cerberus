@@ -20,6 +20,7 @@ gem 'redis'
 gem 'puma'
 gem 'chamber'
 gem 'sinatra', :require => nil
+gem 'devise'
 
 group :development, :test do
 
