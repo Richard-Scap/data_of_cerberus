@@ -5,7 +5,7 @@ class PrintersController < ApplicationController
   # GET /printers
   # GET /printers.json
   def index
-    @printers = Printer.all
+    @printers = Printer.where(city_id: params[:city_id])
   end
 
   # GET /printers/1
