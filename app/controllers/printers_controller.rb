@@ -2,28 +2,25 @@ class PrintersController < ApplicationController
   before_action :set_printer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  # GET /printers
-  # GET /printers.json
+  # GET /cities/:city_id/printers
   def index
     @printers = Printer.all
   end
 
-  # GET /printers/1
-  # GET /printers/1.json
+ # GET /cities/:city_id/printers/:id
   def show
   end
 
-  # GET /printers/new
+  # GET /cities/:city_id/printers/new
   def new
     @printer = Printer.new
   end
 
-  # GET /printers/1/edit
+  # GET /cities/:city_id/printers/:id/edit
   def edit
   end
 
-  # POST /printers
-  # POST /printers.json
+  # POST /cities/:city_id/printers
   def create
     # TODO get classes working
     # TODO move phone_numbers into its own worker
@@ -34,14 +31,12 @@ class PrintersController < ApplicationController
     redirect_to :root
   end
 
-  # PATCH/PUT /printers/1
-  # PATCH/PUT /printers/1.json
+  # PUT /cities/:city_id/printers/:id
   def update
     
   end
 
-  # DELETE /printers/1
-  # DELETE /printers/1.json
+  # DELETE /cities/:city_id/printers/:id
   def destroy
     @printer.destroy
     respond_to do |format|
