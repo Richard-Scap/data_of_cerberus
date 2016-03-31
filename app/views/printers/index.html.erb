@@ -1,7 +1,6 @@
-
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Printers</h1>
+<% @cities = City.all %>
+<h1><%= @cities[@printers.first.city_id].name%></h1>
+<h3>Listing Printers</h3>
 <%=link_to 'Cities Index', cities_path, class: "btn btn-primary"%>
 
 

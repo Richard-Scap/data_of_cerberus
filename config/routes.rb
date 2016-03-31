@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'cities#index'
 
-  resources :cities do
+  resources :cities   do
     resources :printers
   end 
- 
+
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   
