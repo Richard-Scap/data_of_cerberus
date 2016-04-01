@@ -1,5 +1,5 @@
-<% @cities = City.all %>
-<h1><%= @cities[@printers.first.city_id].name%></h1>
+<%#binding.pry%>
+<h1><%=@printers.last.city.name %></h1>
 <h3>Listing Printers</h3>
 <%=link_to 'Cities Index', cities_path, class: "btn btn-primary"%>
 
