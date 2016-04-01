@@ -4,7 +4,7 @@ class PrintersController < ApplicationController
 
   # GET /cities/:city_id/printers
   def index
-    @printers = Printer.all
+    @printers = Printer.where(city_id: params[:city_id])
   end
 
  # GET /cities/:city_id/printers/:id

@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
-<nav class="navbar navbar-default navbar-static-top">
-	<div class= "container">
-	  <div id = "navbar" class= "pull-right">
-	    <%=link_to 'Sign Out', destroy_user_session_path, method: :delete%>
+	<!-- Head + title -->
+	<head>
+	  <title>DataOfCerberus</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag  'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+
+<!-- render navbar, include alerts below nav -->
+	<body>
+		<%= render 'layouts/nav' %>
+		
+		<div class="container">
+			<% if notice.present? %>
+		    <aside class="alert alert-success"> <%= notice %> </aside>
+		 	<% end %>
+	  	<% if alert.present? %>
+	    	<aside class="alert alert-danger"> <%= alert %> </aside>
+	    <% end %>
 	  </div>
-	</div>
-</nav>
-<head>
-  <title>DataOfCerberus</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag :defaults, 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<body>
-<div class="container">
-  <%= yield %>
-</div>
-</body>
+		<div class="container">
+			<%= yield %>
+		</div>
+	</body>
 </html>
