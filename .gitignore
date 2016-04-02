@@ -19,6 +19,6 @@
 #Ignore postgreSQL database.
 /config/database.yml
 
-#Ignore dump file
-dump.rdb
+#Ignore redis files
+*.rdb
 
