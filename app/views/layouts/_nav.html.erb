@@ -1,3 +1,4 @@
+<% @cities = cities_index %>
 <nav class="navbar navbar-inverse navbar-static-top">
 	<div class= "container-fluid">
 		<div class="navbar-header">
@@ -19,8 +20,9 @@
     		<li class="dropdown">
     			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities<span class="caret"></span></a>
     			<ul class="dropdown-menu">
-    				<% @city.each do |n| %>
-    					<li><%=link_to n.name, city_printers_path(:city_id) %></li>
+
+    				<% @cities.each do |city| %>
+    					<li><%=link_to city.name, city_printers_path(city_id: city.id) %></li>
     					<li class="seperator"></li>
     					<%end%>
     			</ul>
